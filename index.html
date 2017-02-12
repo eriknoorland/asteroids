@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+  <style>
+    html, body {margin: 0; padding: 0; overflow: hidden;}
+    #canvas {background: #000;}
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+
+  <script src="libs/easeljs-0.8.2.min.js"></script>
+
+  <script src="utils/toRadians.js"></script>
+  <script src="utils/getDistance.js"></script>
+  <script src="utils/getRandomNumberInRange.js"></script>
+
+  <script src="Game.js"></script>
+  <script src="Asteroid.js"></script>
+  <script src="Ship.js"></script>
+  <script src="Laser.js"></script>
+
+  <script>
+    window.onload = () => {
+      window.addEventListener('resize', onResize);
+      onResize();
+
+      const canvas = document.getElementById('canvas');
+      const stage = new createjs.Stage(canvas);
+      stage.addChild(new Game());
+    };
+
+    function onResize() {
+      canvas.setAttribute('width', window.innerWidth);
+      canvas.setAttribute('height', window.innerHeight);
+    }
+  </script>
+</body>
